@@ -18,6 +18,7 @@ import static javax.persistence.CascadeType.ALL;
 @Getter
 @Setter
 @Entity
+@Table
 public class Day implements Serializable {
 
     /**
@@ -43,15 +44,15 @@ public class Day implements Serializable {
      *           With this, we have now established a bidirectional association between Day and Task entities.
      */
     @OneToMany(cascade=ALL, mappedBy="day")
-    private List<Task> tasks;
+    private List<Task> task;
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Day{" +
                 "id=" + id +
                 ", createdDate='" + createdDate + '\'' +
                 ", todayNotes='" + todayNotes + '\'' +
-                ", Post='" + tasks + '\'' +
+                ", task='" + task + '\'' +
                 '}';
     }
 }

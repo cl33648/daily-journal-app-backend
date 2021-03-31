@@ -2,20 +2,24 @@ package com.example.dailyjournalapp.controller;
 
 import com.example.dailyjournalapp.model.Day;
 import com.example.dailyjournalapp.service.DayService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Component
 @RestController
 @RequestMapping("/day")
 public class DayController {
     private final DayService dayService;
 
     //constructor
+    @Autowired
     public DayController(@Qualifier("dayService") DayService dayService) {
         this.dayService = dayService;
     }
