@@ -33,7 +33,7 @@ public class Day implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    private Instant createdDate;
+    private String createdDate;
 
     private String todayNotes;
 

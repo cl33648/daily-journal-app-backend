@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,6 +28,13 @@ public class DayService {
     }
 
     public Day addDay(Day day){
+
+        //set current date
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String now = formatter.format(calendar.getTime());
+
+        day.setCreatedDate(now);
 
         return dayRepository.save(day);
 
