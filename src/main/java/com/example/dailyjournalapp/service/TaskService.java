@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 @Component
@@ -30,6 +32,12 @@ public class TaskService {
 
     public Task updateTask(Task task){
         return taskRepository.save(task);
+    }
+
+    public Task addTask(Task task){
+
+        return taskRepository.save(task);
+
     }
 
     @Transactional

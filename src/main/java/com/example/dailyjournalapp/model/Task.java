@@ -37,7 +37,7 @@ public class Task implements Serializable {
      * and automatically creates the 'day_id' column. This is the JoinColumn.
      */
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "day_id")
+    @JoinColumn(name = "day_id", referencedColumnName = "id")
     private Day day;
 
     @Override

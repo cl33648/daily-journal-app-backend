@@ -42,8 +42,11 @@ public class Day implements Serializable {
      *          if Day deleted - all its tasks should be deleted
      * mappedby: the value of mappedBy is the name of the association-mapping attribute on the owning side.
      *           With this, we have now established a bidirectional association between Day and Task entities.
+     * orphanRemoval=true: If you remove a Day, it needs to delete all tasks associated with it
      */
-    @OneToMany(cascade=ALL, mappedBy="day")
+    @OneToMany(/*cascade=ALL,*/ mappedBy="day", orphanRemoval = true)
+    //@OneToMany(cascade=ALL, orphanRemoval = true)
+    //@JoinColumn(name="id", referencedColumnName = "day_id")
     private List<Task> task;
 
     @Override
