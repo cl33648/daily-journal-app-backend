@@ -1,5 +1,6 @@
 package com.example.dailyjournalapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,8 +37,9 @@ public class Task implements Serializable {
      * In case of Many(Task)-One(Day) relationship, the 'Task' owns the relationship
      * and automatically creates the 'day_id' column. This is the JoinColumn.
      */
+    @JsonBackReference
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "day_id", referencedColumnName = "id")
+    @JoinColumn(name = "day_id")
     private Day day;
 
     @Override

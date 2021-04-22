@@ -2,9 +2,9 @@ package com.example.dailyjournalapp.controller;
 
 import com.example.dailyjournalapp.model.Day;
 import com.example.dailyjournalapp.service.DayService;
+import com.example.dailyjournalapp.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -17,11 +17,13 @@ import java.util.List;
 @RequestMapping("/day")
 public class DayController {
     private final DayService dayService;
+    private final TaskService taskService;
 
     //constructor
     @Autowired
-    public DayController(@Qualifier("dayService") DayService dayService) {
+    public DayController(@Qualifier("dayService") DayService dayService, @Qualifier("taskService") TaskService taskService) {
         this.dayService = dayService;
+        this.taskService = taskService;
     }
 
     @GetMapping("/all")
@@ -39,7 +41,12 @@ public class DayController {
 
     @PostMapping("/add")
     public ResponseEntity<Day> addDay(@RequestBody Day day){
+
+        /*setting the day_id of each task*/
+        day.getTask().stream().forEach(task -> task.setDay(day));
+
         Day newDay = dayService.addDay(day);
+
         return new ResponseEntity<>(newDay, HttpStatus.CREATED);
     }
 
