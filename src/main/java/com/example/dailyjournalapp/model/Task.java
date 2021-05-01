@@ -19,7 +19,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Entity //making available to JPA
 @Table
 public class Task implements Serializable {
     @Id
@@ -36,10 +36,12 @@ public class Task implements Serializable {
     /**
      * In case of Many(Task)-One(Day) relationship, the 'Task' owns the relationship
      * and automatically creates the 'day_id' column. This is the JoinColumn.
+     * In “name” we write the name of the column in the task table and
+     * in “referencedColumnName” we write the name of the column in the day table.
      */
     @JsonBackReference
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "day_id")
+    @JoinColumn(name = "day_id", referencedColumnName = "id")
     private Day day;
 
     @Override

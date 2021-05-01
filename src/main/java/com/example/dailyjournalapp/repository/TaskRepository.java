@@ -22,7 +22,11 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             "WHERE t.id = ?1")
     void deleteTaskById(Long id);
 
-    Optional<Task> findTaskById(Long taskId);
+    @Transactional
+    @Query("SELECT t.taskName, t.description " +
+            "FROM Task t " +
+            "WHERE t.day = ?1")
+    Optional<Task> findTaskByDayId(Long dayId);
 
     Optional<Task> findTaskByDay(Day day);
 }

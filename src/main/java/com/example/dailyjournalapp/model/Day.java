@@ -17,7 +17,7 @@ import static javax.persistence.CascadeType.ALL;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Entity //making available to JPA
 @Table
 public class Day implements Serializable {
 
@@ -26,6 +26,8 @@ public class Day implements Serializable {
      * so that the byte stream can be reverted back into a copy of the object.
      *
      * @Entity: Day Model saved into Postgre DB table and sent to front end as json
+     * @Id and @GeneratedValue:
+     * unique ID field for the entity and have its value generated automatically when stored in the database.
     **/
 
     @Id

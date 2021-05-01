@@ -36,9 +36,6 @@ public class DayService {
 
         day.setCreatedDate(now);
 
-        //making sure associated day_id gets populated on task table
-        //if(day.getTask()!=null) day.getTask().stream().forEach(b->{ b.setDay(day); });
-
         return dayRepository.save(day);
 
     }

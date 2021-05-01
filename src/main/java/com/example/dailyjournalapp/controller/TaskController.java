@@ -30,9 +30,9 @@ public class TaskController {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Task> getTaskById(@PathVariable("id") Long id){
+    public ResponseEntity<Task> getTaskByDayId(@PathVariable("id") Long id){
 
-        Task task = taskService.findTaskById(id);
+        Task task = taskService.findTaskByDayId(id);
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
 

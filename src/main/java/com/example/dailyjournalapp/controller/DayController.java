@@ -33,6 +33,7 @@ public class DayController {
     }
 
     @GetMapping("/find/{id}")
+    //With @PathVariable we mark that a method parameter should be retrieved from the requested path.
     public ResponseEntity<Day> getDayById(@PathVariable("id") Long id){
 
         Day day = dayService.findDayById(id);

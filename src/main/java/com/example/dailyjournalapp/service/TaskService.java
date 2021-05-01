@@ -45,7 +45,7 @@ public class TaskService {
         taskRepository.deleteTaskById(id);
     }
 
-    public Task findTaskById(Long id){
-        return taskRepository.findTaskById(id).orElseThrow(() -> new TaskNotFoundException("Task by id "+ id + " not found."));
+    public Task findTaskByDayId(Long id){
+        return taskRepository.findTaskByDayId(id).orElseThrow(() -> new TaskNotFoundException("Task by day id "+ id + " not found."));
     }
 }

@@ -29,7 +29,10 @@ Search, add, delete, update etc Days and Tasks.
   
 ##REST Controller  
 1. Get All Days: 	http://localhost:8080/day/all  
+![](diagram/postman-getalldays.png)  
 2. Get Day By Id: 	http://localhost:8080/day/find/{id}  
+![](diagram/postman-finddaybyid.png)   
 3. Add Day:			http://localhost:8080/day/add  
+![](diagram/postman-addday.png)  
 4. Update Day:		http://localhost:8080/day/update  
 5. Delete Day:		http://localhost:8080/day/delete/{id}  
